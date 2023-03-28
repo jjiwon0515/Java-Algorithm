@@ -1,6 +1,10 @@
 package BaekJoon_Recursion;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
+
 
 public class _11729_ {
 
@@ -27,7 +31,8 @@ public class _11729_ {
 //
 //    }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        long beforeTime = System.currentTimeMillis(); //코드 실행 전에 시간 받아오기
 //        세 개의 장대가 있고 첫 번째 장대에는 반경이 서로 다른 n개의 원판이 쌓여 있다. 각 원판은 반경이 큰 순서대로 쌓여있다.
 //        이제 수도승들이 다음 규칙에 따라 첫 번째 장대에서 세 번째 장대로 옮기려 한다.
 //
@@ -38,13 +43,22 @@ public class _11729_ {
         // 아이디어 : 베이스 케이스, N값이 점점 작아져야한다, 원판이 3개인 상황부터 생각해보자
 
         // 원판 개수 N에 입력받기
-        Scanner sc = new Scanner(System.in);
-        int N = Integer.parseInt(sc.nextLine());
+        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(bf.readLine());
+
+
 
 
 
         System.out.println((int)Math.pow(2,N) - 1);
         hanoi_top(N,'1','2','3');
+
+
+//실험할 코드 추가
+
+        long afterTime = System.currentTimeMillis(); // 코드 실행 후에 시간 받아오기
+        long secDiffTime = (afterTime - beforeTime)/1000; //두 시간에 차 계산
+        System.out.println("시간차이(m) : "+secDiffTime);
 
 
 
